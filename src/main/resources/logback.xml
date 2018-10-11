@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="USER_DIR" value="${HOME}/" />
+    <timestamp key="bySecond" datePattern="yyyyMMdd_HHmmss" />
+    <timestamp key="byDate" datePattern="yyyyMMdd"/>
+
+    <appender name="FILE-THREAD" class="ch.qos.logback.classic.sift.SiftingAppender">
+
+        <!-- This is MDC value -->
+        <!-- We will assign a value to 'logFileName' via Java code -->
+        <discriminator>
+            <key>logFileName</key>
+            <defaultValue>Test</defaultValue>
+        </discriminator>
+
+        <sift>
+
+            <!-- A standard RollingFileAppender, the log file is based on 'logFileName' at runtime  -->
+            <appender name="FILE-${logFileName}"
+                      class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <file>Logs/${byDate}/${logFileName}.${bySecond}.log</file>
+
+                <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                    <Pattern>
+                        %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{0}:%C{0} %m%n
+                    </Pattern>
+                </encoder>
+
+                <rollingPolicy
+                        class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+                    <FileNamePattern>Logs/${byDate}/${logFileName}.%i.log.zip</FileNamePattern>
+                    <MinIndex>1</MinIndex>
+                    <MaxIndex>10</MaxIndex>
+                </rollingPolicy>
+
+                <triggeringPolicy
+                        class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+                    <MaxFileSize>10MB</MaxFileSize>
+                </triggeringPolicy>
+
+            </appender>
+
+        </sift>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                [%thread] %highlight(%-5level) %cyan(%c{0}): %m%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.abn.testNGTest" level="debug"
+            additivity="false">
+        <appender-ref ref="FILE-THREAD" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

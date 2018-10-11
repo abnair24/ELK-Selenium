@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TestNG Test" parallel="tests" thread-count="6">
+    <listeners>
+        <listener class-name="common.ExecutionListener" />
+    </listeners>
+    <test name="Chrome Tests" parallel="classes" >
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="smoke.FirstTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox tests" parallel="classes">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="FirstTest"/>
+            <class name="smoke.SignUpTest"/>
+        </classes>
+    </test>
+
+
+
+</suite>
