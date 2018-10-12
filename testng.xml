@@ -6,15 +6,15 @@
     <test name="Chrome Tests" parallel="classes" >
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="smoke.FirstTest"/>
+            <class name="SignUpTest"/>
         </classes>
     </test>
 
     <test name="Firefox tests" parallel="classes">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
+            <class name="packageone.ThirdTest"/>
             <class name="FirstTest"/>
-            <class name="smoke.SignUpTest"/>
         </classes>
     </test>
 

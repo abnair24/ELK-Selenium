@@ -5,14 +5,17 @@ import com.mashape.unirest.http.ObjectMapper;
 
 public class TestStatus {
 
-    @JsonProperty("TestClass")
+    @JsonProperty("testClass")
     private String testClass;
 
-    @JsonProperty("Status")
+    @JsonProperty("status")
     private String status;
 
-    @JsonProperty("ExecutionTime")
+    @JsonProperty("executionTime")
     private String executionTime;
+
+    @JsonProperty("browser")
+    private String browser;
 
     public void setExecutionTime(String executionTime) {
         this.executionTime = executionTime;
@@ -26,5 +29,8 @@ public class TestStatus {
         this.testClass = testClass;
     }
 
+    public void setBrowser(String browser) {
+        this.browser = browser;
+    }
 
 }
