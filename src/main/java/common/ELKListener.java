@@ -12,20 +12,20 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class ExecutionListener implements ITestListener,IInvokedMethodListener,IClassListener,ISuiteListener{
+public class ELKListener implements ITestListener,IInvokedMethodListener,IClassListener,ISuiteListener{
 
     private TestStatus testStatus;
     protected WebDriver driver;
     private String browserName;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExecutionListener.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ELKListener.class);
 
     private void sendStatus(ITestResult iTestResult, String status){
         this.testStatus.setTestClass(iTestResult.getTestClass().getName());
         this.testStatus.setStatus(status);
         this.testStatus.setExecutionTime(LocalDateTime.now().toString());
         this.testStatus.setBrowser(browserName);
-        ResultMapper.send(this.testStatus);
+        ELKMapper.send(this.testStatus);
     }
 
     @Override

@@ -17,4 +17,5 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'org.influxdb', name: 'influxdb-java', version: '2.13'
 }

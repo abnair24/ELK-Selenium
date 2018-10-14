@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="TestNG Test" parallel="tests" thread-count="6">
     <listeners>
-        <listener class-name="common.ExecutionListener" />
+        <listener class-name="common.GraphanaListener" />
+        <!--<listener class-name="common.ELKListener" />-->
     </listeners>
     <test name="Chrome Tests" parallel="classes" >
         <parameter name="browser" value="chrome"></parameter>

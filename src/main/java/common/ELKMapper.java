@@ -3,7 +3,7 @@ package common;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 
-public class ResultMapper {
+public class ELKMapper {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
