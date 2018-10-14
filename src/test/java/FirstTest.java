@@ -13,7 +13,7 @@ public class FirstTest {
         HomePage pg = new HomePage(DriverManager.getDriver());
 
         pg.addnew().goToSummary()
-                .goToAuthenticate().signIn("byju@mailinator.com","Cisco@1234").goToShipping().goToPayment()
+                .goToAuthenticate().signIn("dummyname01@mailinator.com","root@1234").goToShipping().goToPayment()
                 .selectPaymentMode("payByWire").confrimOrder().backToORder();
     }
 

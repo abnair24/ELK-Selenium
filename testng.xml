@@ -14,7 +14,7 @@
     <test name="Firefox tests" parallel="classes">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
-            <class name="packageone.ThirdTest"/>
+            <class name="smoke.ThirdTest"/>
             <class name="FirstTest"/>
         </classes>
     </test>

@@ -1,4 +1,4 @@
-package packageone;
+package smoke;
 
 import common.CommonHelper;
 import common.DriverManager;

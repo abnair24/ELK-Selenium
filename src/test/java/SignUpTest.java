@@ -11,7 +11,7 @@ public class SignUpTest  {
         HomePage pg = new HomePage(DriverManager.getDriver());
 
         pg.addnew().goToSummary()
-                .goToAuthenticate().signUp(CommonHelper.getUniqueEmail("chandra")) ;
+                .goToAuthenticate().signUp(CommonHelper.getUniqueEmail("autotest")) ;
 
     }
 }
